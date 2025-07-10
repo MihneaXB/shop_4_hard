@@ -1,28 +1,28 @@
 package com.createq.web_shop.controller;
 
 import com.createq.web_shop.dto.ProductDTO;
-import com.createq.web_shop.facades.ProductCategoryFacade;
+import com.createq.web_shop.facades.CategoryFacade;
 import com.createq.web_shop.facades.ProductFacade;
-import com.createq.web_shop.repository.ProductCategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
+import java.util.NoSuchElementException;
 
 @Controller
 public class ProductController {
     private final ProductFacade productFacade;
-    private final ProductCategoryFacade productCategoryFacade;
+    private final CategoryController categoryController;
 
     @Autowired
-    public ProductController(ProductFacade productFacade, ProductCategoryRepository productCategoryRepository, ProductCategoryFacade productCategoryFacade) {
+    public ProductController(ProductFacade productFacade, CategoryController categoryController) {
         this.productFacade = productFacade;
-        this.productCategoryFacade = productCategoryFacade;
+        this.categoryController = categoryController;
     }
 
     @GetMapping("/")
@@ -37,8 +37,13 @@ public class ProductController {
     @GetMapping("/products/{categoryId}")
     public String productsByCategory(@PathVariable long categoryId, Model model) {
         List<ProductDTO> productDTOList = productFacade.getProductByCategory(categoryId);
+
+        if(productDTOList.isEmpty()) {
+           throw new NoSuchElementException("No products in this category!");
+        }
+
         model.addAttribute("productDTOList", productDTOList);
-        model.addAttribute("categoryName", productCategoryFacade.getCategoryName(categoryId));
+        model.addAttribute("categoryName", categoryController.getCategoryName(categoryId));
         model.addAttribute("contentPage", "/WEB-INF/jsp/productList.jsp");
 
         return "index";

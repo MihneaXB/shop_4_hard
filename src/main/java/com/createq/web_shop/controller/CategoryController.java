@@ -12,4 +12,8 @@ public class CategoryController {
     public CategoryController(CategoryFacade categoryFacade) {
         this.categoryFacade = categoryFacade;
     }
+
+    public String getCategoryName(long id){
+        return categoryFacade.getCategoryName(id);
+    }
 }
