@@ -2,7 +2,7 @@ package com.createq.web_shop.dto;
 
 import java.util.List;
 
-public class ProductCategoryDTO {
+public class CategoryDTO {
     private int id;
     private String name;
     List<ProductDTO> products;
