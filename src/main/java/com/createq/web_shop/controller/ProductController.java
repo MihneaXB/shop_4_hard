@@ -27,8 +27,7 @@ public class ProductController {
 
     @GetMapping("/")
     public String allProducts(Model model) {
-        List<ProductDTO> allProducts = productFacade.getAll();
-        Map<String, List<ProductDTO>> productsPerCategory = allProducts.stream().collect(Collectors.groupingBy(ProductDTO::getCategory));
+        Map<String, List<ProductDTO>> productsPerCategory = productFacade.getAllProductsGroupedByCategory();
         model.addAttribute("productsPerCategory", productsPerCategory);
         model.addAttribute("contentPage", "/WEB-INF/jsp/allCategories.jsp");
 
