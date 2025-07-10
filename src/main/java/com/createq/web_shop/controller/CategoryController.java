@@ -12,11 +12,4 @@ public class CategoryController {
     public CategoryController(CategoryFacade categoryFacade) {
         this.categoryFacade = categoryFacade;
     }
-
-//    @GetMapping("/categories-page")
-//    public String getAllCategories(Model model) {
-//        List<ProductCategoryDTO> categories = productCategoryFacade.getAll();
-//        model.addAttribute("categories", categories);
-//        return "allCategories";
-//    }
 }
