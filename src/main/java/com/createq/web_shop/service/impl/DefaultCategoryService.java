@@ -1,8 +1,8 @@
 package com.createq.web_shop.service.impl;
 
-import com.createq.web_shop.model.ProductCategoryModel;
-import com.createq.web_shop.repository.ProductCategoryRepository;
-import com.createq.web_shop.service.ProductCategoryService;
+import com.createq.web_shop.model.CategoryModel;
+import com.createq.web_shop.repository.CategoryRepository;
+import com.createq.web_shop.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -10,25 +10,30 @@ import org.springframework.web.bind.annotation.PathVariable;
 import java.util.List;
 
 @Service
-public class DefaultProductCategoryService implements ProductCategoryService {
-    private final ProductCategoryRepository productCategoryRepository;
+public class DefaultCategoryService implements CategoryService {
+    private final CategoryRepository categoryRepository;
 
-    public ProductCategoryRepository getProductCategoryRepository() {
-        return productCategoryRepository;
+    public CategoryRepository getProductCategoryRepository() {
+        return categoryRepository;
     }
 
     @Autowired
-    public DefaultProductCategoryService(ProductCategoryRepository productCategoryRepository) {
-        this.productCategoryRepository = productCategoryRepository;
+    public DefaultCategoryService(CategoryRepository categoryRepository) {
+        this.categoryRepository = categoryRepository;
     }
 
     @Override
-    public List<ProductCategoryModel> getAll(){
-        return productCategoryRepository.findAll();
+    public List<CategoryModel> getAll(){
+        return categoryRepository.findAll();
     }
 
     @Override
     public String getCategoryName(@PathVariable long categoryId) {
-        return productCategoryRepository.findById(categoryId).get().getName();
+        return categoryRepository.findById(categoryId).get().getName();
+    }
+
+    @Override
+    public CategoryModel getCategoryById(@PathVariable long categoryId) {
+        return categoryRepository.findById(categoryId).get();
     }
 }

@@ -8,12 +8,14 @@ public class ProductModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String title;
+    private String name;
     private String description;
     private double price;
     private String imageURL;
     @ManyToOne
-    private ProductCategoryModel category;
+    private CategoryModel category;
+    private int stock;
+    private String specification;
 
     public int getId() {
         return id;
@@ -23,12 +25,12 @@ public class ProductModel {
         this.id = id;
     }
 
-    public String getTitle(){
-        return title;
+    public String getName(){
+        return name;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getDescription() {
@@ -55,11 +57,24 @@ public class ProductModel {
         this.imageURL = imageURL;
     }
 
-    public ProductCategoryModel getCategory() {
+    public CategoryModel getCategory() {
         return category;
     }
 
-    public void setCategory(ProductCategoryModel category) {
+    public void setCategory(CategoryModel category) {
         this.category = category;
     }
+
+    public int getStock() { return stock;}
+
+    public void setStock(int stock) { this.stock = stock;}
+
+    public String getSpecification() { return specification;}
+
+    public void setSpecification(String specification) { this.specification = specification;}
+
+    public String getCategoryName(){
+        return category.getName();
+    }
+
 }

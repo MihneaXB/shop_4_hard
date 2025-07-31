@@ -13,11 +13,13 @@ public class ProductConverter {
         if(productModel == null) return null;
         ProductDTO productDTO = new ProductDTO();
         productDTO.setId(productModel.getId());
-        productDTO.setTitle(productModel.getTitle());
+        productDTO.setName(productModel.getName());
         productDTO.setPrice(productModel.getPrice());
         productDTO.setDescription(productModel.getDescription());
         productDTO.setImageURL(productModel.getImageURL());
         productDTO.setCategory(productModel.getCategory().getName());
+        productDTO.setSpecifications(productModel.getSpecification());
+        productDTO.setStock(productModel.getStock());
         return productDTO;
     }
 

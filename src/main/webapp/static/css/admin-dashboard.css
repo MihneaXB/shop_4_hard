@@ -1,0 +1,190 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #121212;
+    color: #ffdb4d;
+    line-height: 1.6;
+    min-height: 100vh;
+    padding: 2rem 1.5rem;
+    text-align: center;
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 2rem;
+    color: #ffdb4d;
+}
+
+.tab {
+    background-color: #1e1e1e;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(255, 219, 77, 0.3);
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+    overflow: hidden;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tab button {
+    background-color: inherit;
+    border: none;
+    padding: 14px 24px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 1rem;
+    color: #ffdb4d;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    flex-grow: 1;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    user-select: none;
+}
+
+.tab button:hover {
+    background-color: #ffdb4d;
+    color: #121212;
+}
+
+.tab button.active {
+    background-color: #ffdb4d;
+    color: #121212;
+}
+
+.tabcontent {
+    background-color: #1e1e1e;
+    max-width: 750px;
+    margin: 0 auto 3rem auto;
+    padding: 2rem 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(255, 219, 77, 0.4);
+    text-align: left;
+    display: none;
+}
+
+.tabcontent.active {
+    display: block;
+}
+
+form {
+    margin-bottom: 2rem;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="number"],
+textarea {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px 14px;
+    margin-top: 8px;
+    margin-bottom: 16px;
+    border: none;
+    border-radius: 8px;
+    background-color: #121212;
+    color: #ffdb4d;
+    box-shadow: inset 0 0 8px #ffdb4d88;
+    font-size: 1rem;
+    font-weight: 600;
+    resize: vertical;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #ffdb4daa;
+}
+
+button {
+    background-color: #ffdb4d;
+    border: none;
+    color: #121212;
+    font-weight: 700;
+    padding: 12px 24px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    user-select: none;
+}
+
+button:hover {
+    background-color: #ffcc00;
+}
+
+table {
+    width: 100%;
+    max-width: 700px;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    box-shadow: 0 0 12px #ffdb4d33;
+}
+
+th, td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #ffdb4d44;
+    color: #ffdb4d;
+    text-align: left;
+    font-weight: 600;
+}
+
+th {
+    background-color: #121212;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+}
+
+tr:hover {
+    background-color: #ffdb4d11;
+}
+
+form[style*="display:inline"] {
+    display: inline;
+}
+
+form button {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+}
+
+form button[onclick] {
+    background-color: #ff6b6b;
+    color: #fff;
+    font-weight: 700;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+form button[onclick]:hover {
+    background-color: #ff4c4c;
+}
+
+@media (max-width: 768px) {
+    .tab {
+        flex-direction: column;
+    }
+    .tab button {
+        flex-grow: unset;
+        width: 100%;
+        padding: 12px 0;
+        border-bottom: 1px solid #ffdb4d33;
+    }
+    table {
+        font-size: 0.9rem;
+    }
+    input[type="text"],
+    input[type="password"],
+    input[type="number"],
+    textarea {
+        max-width: 100%;
+    }
+}

@@ -2,11 +2,13 @@ package com.createq.web_shop.dto;
 
 public class ProductDTO {
     private long id;
-    private String title;
+    private String name;
     private String description;
     private String imageURL;
     private double price;
     private String category;
+    private int stock;
+    private String specifications;
 
     public long getId() {
         return id;
@@ -16,12 +18,12 @@ public class ProductDTO {
         this.id = id;
     }
 
-    public String getTitle() {
-        return title;
+    public String getName() {
+        return name;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getDescription() {
@@ -54,5 +56,21 @@ public class ProductDTO {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    public int getStock() {
+        return stock;
+    }
+
+    public void setStock(int stock) {
+        this.stock = stock;
+    }
+
+    public String getSpecifications() {
+        return specifications;
+    }
+
+    public void setSpecifications(String specifications) {
+        this.specifications = specifications;
     }
 }
